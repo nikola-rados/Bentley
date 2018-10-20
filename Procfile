@@ -1,1 +1,1 @@
-worker: python bentley.py
+worker: python main.py
