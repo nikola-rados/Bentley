@@ -1,10 +1,11 @@
 # Work with Python 3.6
 import discord
 import random
+import os
 
 
 # Globals
-token = process.env.token
+token = os.environ['TOKEN']
 drop_rate = 1
 client = discord.Client()
 
