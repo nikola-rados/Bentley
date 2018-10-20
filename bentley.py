@@ -6,12 +6,12 @@ import os
 
 # Globals
 token = os.environ['TOKEN']
-drop_rate = 1
+drop_rate = 0.01
 client = discord.Client()
 
 
 def earned_power():
-	return (random.random() * 100) > drop_rate
+	return random.random() < drop_rate
 
 
 def random_list_item(list):
