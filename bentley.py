@@ -4,9 +4,7 @@ import random
 
 
 # Globals
-token = 'NTAyOTg0MzUyNDk0MjU2MTQw.Dqv6Qw.yK26991ZbOXwwifjSIJi1YJHMV8'
-me = 291813077542764547
-nol = '<@281641905077485569>'
+token = process.env.token
 drop_rate = 1
 client = discord.Client()
 
