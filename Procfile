@@ -1,1 +1,1 @@
-worker: node bentley.py
+worker: python bentley.py
