@@ -6,5 +6,7 @@ REPLIES = [
            ", my conversation options are limited... I'm a turtle afterall.",
            ", I just don't have time to talk!",
            ", anymore talking and I might just go into my shell.",
-           ", funny, Sly has said the exact same thing to me before."
+           "thats funny, Sly has said the exact same thing to me before."
           ]
+
+BENTLEY_ID = 502984352494256140
