@@ -5,7 +5,7 @@ import random
 
 
 def earned_power():
-	return random.random() < .015
+	return random.random() < 10#.015
 
 def random_list_item(list):
     return list[random.randint(0, len(list)-1)]
