@@ -9,7 +9,7 @@ from cogs.utils import constants
 
 if __name__ == '__main__':
     # instantiate bot
-    bot = commands.Bot(command_prefix="~")
+    bot = commands.Bot(command_prefix="!")
 
     ## EVENTS ##
     # power distribution
@@ -32,6 +32,15 @@ if __name__ == '__main__':
         for member in message.mentions:
             if member.id == constants.BENTLEY_ID:
                 await message.channel.send('{0.mention}{1}'.format(message.author, random.choice(constants.REPLIES)))
+
+    ## COMMANDS ##
+    # assign coucil role
+    @bot.command(pass_context=True)
+    async def notify(ctx):
+        member = ctx.message.author
+        role = discord.utils.get(member.guild.role_hierarchy, name='Council')
+        await member.add_roles(role)
+        await ctx.channel.send('{0.mention} you will now get notifications for votes'.format(member))
 
 	# run
     bot.run(os.environ['TOKEN'])
