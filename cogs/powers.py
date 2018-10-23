@@ -1,69 +1,44 @@
 import discord
 from discord.ext import commands
-
 import random
 
+# Local Imports
+from cogs.utils import constants
 
-def earned_power():
-	return random.random() < .01
 
-def random_list_item(list):
-    return list[random.randint(0, len(list)-1)]
+class Powers:
+    def __init__(self, bot):
+        self.bot = bot
 
-def roll_box():
-	legendary_rate = 4
-	legendary_list = ["Bass Ackwards",
-                      "Everybody Shut Up",
-                      "National Debate",
-                      "No U",
-                      "Overdrive",
-                      "Pecking Order",
-                      "Pickpocket"]
+    def earned_power(self):
+    	return random.random() < constants.POWER_DROP_RATE
 
-	epic_rate = 14
-	epic_list = ["Age Before Beauty",
-                 "DEFCON 4",
-                 "Double Jeopardy",
-                 "Jack in the Box",
-                 "Predator Missle",
-                 "Prime Minister",
-                 "Suspension",
-                 "Tactical Nuke",
-                 "The Upsidedown"]
+    def random_list_item(self, list):
+        return list[random.randint(0, len(list)-1)]
 
-	rare_rate = 44
-	rare_list = ["Cluster Bomb",
-                 "Hostile Takeover",
-                 "Premier",
-                 "RPG Enthusiast",
-                 "Monkey Switch",
-                 "The Senate"]
+    def roll_box(self):
+    	roll = random.randint(1, 100)
 
-	uncommon_rate = 69
-	uncommon_list = ["Ball & Chain",
-                     "Package Deal",
-                     "Saboteur",
-                     "Single Player is Dead",
-                     "Mayor",
-                     "3UP",
-                     "3DOWN"]
+    	if roll <= constants.LEGENDARY_DROP_RATE:
+    		return self.random_list_item(constants.LEGENDARY)
+    	elif roll <= constants.EPIC_DROP_RATE:
+    		return self.random_list_item(constants.EPIC)
+    	elif roll <= constants.RARE_DROP_RATE:
+    		return self.random_list_item(constants.RARE)
+    	elif roll <= constants.UNCOMMON_DROP_RATE:
+    		return self.random_list_item(constants.UNCOMMON)
+    	elif roll <= constants.COMMON_DROP_RATE:
+    		return self.random_list_item(constants.COMMON)
 
-	common_rate = 99
-	common_list = ["Bonus Round",
-                   "Over-hyped",
-                   "Quickfire",
-                   "1UP",
-                   "1DOWN"]
+    # power distribution
+    async def on_message(self, message):
+        if message.author == self.bot.user:
+            return
+        else:
+            if self.earned_power():
+                await message.channel.send('Congradulations {0.mention}, you\'ve earned **{1}**!'.format(message.author, self.roll_box()))
 
-	roll = random.randint(1, 100)
+        await self.bot.process_commands(message)
 
-	if roll <= legendary_rate:
-		return random_list_item(legendary_list)
-	elif roll <= epic_rate:
-		return random_list_item(epic_list)
-	elif roll <= rare_rate:
-		return random_list_item(rare_list)
-	elif roll <= uncommon_rate:
-		return random_list_item(uncommon_list)
-	elif roll <= common_rate:
-		return random_list_item(common_list)
+def setup(bot):
+    bot.add_cog(Powers(bot))
