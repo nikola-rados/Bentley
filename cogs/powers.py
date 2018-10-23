@@ -25,8 +25,6 @@ class Powers:
     		return self.random_list_item(constants.EPIC)
     	elif roll <= constants.RARE_DROP_RATE:
     		return self.random_list_item(constants.RARE)
-    	elif roll <= constants.UNCOMMON_DROP_RATE:
-    		return self.random_list_item(constants.UNCOMMON)
     	elif roll <= constants.COMMON_DROP_RATE:
     		return self.random_list_item(constants.COMMON)
 

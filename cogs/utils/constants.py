@@ -42,17 +42,7 @@ RARE = ["Cluster Bomb",
         "Monkey Switch",
         "The Senate"]
 
-RARE_DROP_RATE = 44
-
-UNCOMMON = ["Ball & Chain",
-            "Package Deal",
-            "Saboteur",
-            "Single Player is Dead",
-            "Mayor",
-            "3UP",
-            "3DOWN"]
-
-UNCOMMON_DROP_RATE = 69
+RARE_DROP_RATE = 54
 
 COMMON = ["Bonus Round",
           "Over-hyped",
