@@ -21,7 +21,7 @@ if __name__ == '__main__':
 
         else:
             if earned_power():
-                await message.channel.send('congratulations {0.mention}, you\'ve earned **{1}**!'.format(message.author, roll_box()))
+                await message.channel.send('Congratulations {0.mention}, you\'ve earned **{1}**!'.format(message.author, roll_box()))
 
         # check for any commands
         await bot.process_commands(message)
