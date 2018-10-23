@@ -10,3 +10,54 @@ REPLIES = [
           ]
 
 BENTLEY_ID = 502984352494256140
+
+POWER_DROP_RATE = 10
+
+LEGENDARY = ["Bass Ackwards",
+             "Everybody Shut Up",
+             "National Debate",
+             "No U",
+             "Overdrive",
+             "Pecking Order",
+             "Pickpocket"]
+
+LEGENDARY_DROP_RATE = 4
+
+EPIC = ["Age Before Beauty",
+        "DEFCON 4",
+        "Double Jeopardy",
+        "Jack in the Box",
+        "Predator Missle",
+        "Prime Minister",
+        "Suspension",
+        "Tactical Nuke",
+        "The Upsidedown"]
+
+EPIC_DROP_RATE = 14
+
+RARE = ["Cluster Bomb",
+        "Hostile Takeover",
+        "Premier",
+        "RPG Enthusiast",
+        "Monkey Switch",
+        "The Senate"]
+
+RARE_DROP_RATE = 44
+
+UNCOMMON = ["Ball & Chain",
+            "Package Deal",
+            "Saboteur",
+            "Single Player is Dead",
+            "Mayor",
+            "3UP",
+            "3DOWN"]
+
+UNCOMMON_DROP_RATE = 69
+
+COMMON = ["Bonus Round",
+          "Over-hyped",
+          "Quickfire",
+          "1UP",
+          "1DOWN"]
+
+COMMON_DROP_RATE = 99
