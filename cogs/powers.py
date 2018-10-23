@@ -38,7 +38,5 @@ class Powers:
             if self.earned_power():
                 await message.channel.send('Congradulations {0.mention}, you\'ve earned **{1}**!'.format(message.author, self.roll_box()))
 
-        await self.bot.process_commands(message)
-
 def setup(bot):
     bot.add_cog(Powers(bot))

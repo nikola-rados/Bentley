@@ -16,8 +16,6 @@ class Admin:
             if member.id == constants.BENTLEY_ID:
                 await message.channel.send('{0.mention}{1}'.format(message.author, random.choice(constants.REPLIES)))
 
-        await self.bot.process_commands(message)
-
     # assign coucil role
     @commands.command(pass_context=True)
     async def notify(self, ctx):
