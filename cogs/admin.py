@@ -32,7 +32,7 @@ class Admin:
             color=0x1ece6d
         )
 
-        embed.set_author(name="HELP")
+        embed.set_author(name="Help Page")
         embed.add_field(name="!help",
                         value="What you are seeing now",
                         inline=True)

@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import random
+import os
 
 # Local Imports
 from cogs.utils import constants
@@ -11,7 +12,7 @@ class Powers:
         self.bot = bot
 
     def earned_power(self):
-    	return random.randint(1, 100) < constants.POWER_DROP_RATE
+    	return random.randint(1, 100) <= constants.POWER_DROP_RATE
 
     def random_list_item(self, list):
         return list[random.randint(0, len(list)-1)]
@@ -34,8 +35,13 @@ class Powers:
             return
         else:
             if self.earned_power():
-                ch = self.bot.get_channel(501943623634518046)
-                await ch.send('Congradulations {0.mention}, you\'ve earned **{1}**!'.format(message.author, self.roll_box()))
+                ch = self.bot.get_channel(int(os.environ['DISCUSSION']))
+                mod = '<@{}>'.format(os.environ['NOL'])
+                await ch.send('Congradulations {0.mention}, '
+                              'you\'ve earned **{1}**!\n{2}, please '
+                              'add that to the list'.format(message.author,
+                                                            self.roll_box(),
+                                                            mod))
 
 def setup(bot):
     bot.add_cog(Powers(bot))
