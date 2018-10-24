@@ -11,7 +11,7 @@ class Powers:
         self.bot = bot
 
     def earned_power(self):
-    	return random.random() < constants.POWER_DROP_RATE
+    	return random.randint(1, 100) < constants.POWER_DROP_RATE
 
     def random_list_item(self, list):
         return list[random.randint(0, len(list)-1)]

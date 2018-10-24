@@ -11,7 +11,7 @@ REPLIES = [
 
 BENTLEY_ID = 502984352494256140
 
-POWER_DROP_RATE = 0.01
+POWER_DROP_RATE = 1
 
 LEGENDARY = ["Bass Ackwards",
              "Everybody Shut Up",
