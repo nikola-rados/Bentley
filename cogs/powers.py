@@ -11,8 +11,8 @@ class Powers:
     def __init__(self, bot):
         self.bot = bot
 
-    def earned_power(self):
-    	return random.randint(1, 100) <= constants.POWER_DROP_RATE
+    def earned_power(self, drop_rate):
+    	return random.randint(1, 100) <= drop_rate
 
     def random_list_item(self, list):
         return list[random.randint(0, len(list)-1)]
@@ -34,7 +34,14 @@ class Powers:
         if message.author == self.bot.user:
             return
         else:
-            if self.earned_power():
+            # assign rate based on action
+            if message.channel == discord.utils.get(self.bot.get_all_channels(), guild__name='Desire Index', name='voting'):
+                drop_rate = constants.POWER_DROP_RATE_M
+            else:
+                drop_rate = constants.POWER_DROP_RATE_D
+
+            # check for power earning
+            if self.earned_power(drop_rate):
                 ch = self.bot.get_channel(int(os.environ['DISCUSSION']))
                 mod = '<@{}>'.format(os.environ['NOL'])
                 await ch.send('Congradulations {0.mention}, '
