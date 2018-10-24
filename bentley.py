@@ -5,6 +5,7 @@ import random
 
 # Globals
 bot = commands.Bot(command_prefix='!')
+bot.remove_command('help')
 extensions = ['cogs.admin', 'cogs.powers']
 
 

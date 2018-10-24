@@ -24,5 +24,23 @@ class Admin:
         await member.add_roles(role)
         await ctx.channel.send('{0.mention} you will now get notifications for votes'.format(member))
 
+    # help
+    @commands.command(pass_context=True)
+    async def help(self, ctx):
+        embed=discord.Embed(
+            title="Sly do you read me???",
+            description="This describes all the commands that Bentley understands", color=0x1ece6d
+        )
+
+        embed.set_author(name="HELP")
+        embed.add_field(name="!help",
+                        value="What you are seeing now",
+                        inline=True)
+        embed.add_field(name="!notify",
+                        value="You will be given the Council role which will notify you of any new votes",
+                        inline=True)
+
+        await ctx.channel.send(embed=embed)
+
 def setup(bot):
     bot.add_cog(Admin(bot))
