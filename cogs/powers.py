@@ -68,6 +68,23 @@ class Powers:
                               "Bomb_\" power.  Along with the command, give "
                               "Bentley the 3 games you wish to effect.",
                         inline=True)
+        embed.add_field(name="!everybodyshutup \"game\" current new",
+                        value="This will produce the result of the "
+                              "\"_Everybody Shut Up_\" power.  The _game_ is "
+                              "the game you wish to move.  _current_ is its "
+                              "position on the index and _new_ is where you "
+                              "are moving it to.",
+                        inline=True)
+        embed.add_field(name="!lockdown \"game1\" \"game1\"",
+                        value="This will produce the result of the "
+                              "\"_Lockdown_\" power.  Give Bentley the two "
+                              "games you wish to effect.",
+                        inline=True)
+        embed.add_field(name="!mindcontrol @member",
+                        value="This will produce the result of the "
+                              "\"_Mind Control_\" power.  Mention the user "
+                              "you wish to effect.",
+                        inline=True)
         await ctx.channel.send(embed=embed)
 
     @commands.command(pass_context=True)
@@ -82,14 +99,19 @@ class Powers:
             else:
                 result_list.append((o, s))
 
-        # what changed?
+        # message
         embed=discord.Embed(title=' ',
                             colour=0x1ece6d)
-        embed.set_author(name="Cluster Bomb Result")
+        embed.set_author(name="Cluster Bomb")
         embed.add_field(name='Used By',
                         value='{0.mention}'.format(ctx.message.author),
                         inline=False)
-        embed.add_field(name='Swaps',
+        embed.add_field(name='Games',
+                        value='**{0}**\n'
+                              '**{1}**\n'
+                              '**{2}**\n'.format(g1, g2, g3),
+                        inline=False)
+        embed.add_field(name='Result',
                         value='**{0}** swap with **{1}**\n'
                               '**{2}** swap with **{3}**\n'
                               '**{4}** swap with **{5}**'
@@ -99,6 +121,56 @@ class Powers:
                                       result_list[1][1],
                                       result_list[2][0],
                                       result_list[2][1]),
+                        inline=False)
+        embed.add_field(name='Locking', value='True Lock', inline=False)
+        embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
+        await ctx.message.channel.send(embed=embed)
+
+    @commands.command(pass_context=True)
+    async def everybodyshutup(self, ctx, game, rank_curr, rank_new):
+        embed=discord.Embed(title=' ',
+                            colour=0x1ece6d)
+        embed.set_author(name="Everybody Shut Up")
+        embed.add_field(name='Used By',
+                        value='{0.mention}'.format(ctx.message.author),
+                        inline=False)
+        embed.add_field(name='Game', value='**{0}**'.format(game), inline=False)
+        embed.add_field(name='Result',
+                        value='Rank {0} --> Rank {1}'.format(rank_curr, rank_new),
+                        inline=False)
+        embed.add_field(name='Locking', value='True Lock', inline=False)
+        embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
+        await ctx.message.channel.send(embed=embed)
+
+    @commands.command(pass_context=True)
+    async def lockdown(self, ctx, g1, g2):
+        embed=discord.Embed(title=' ',
+                            colour=0x1ece6d)
+        embed.set_author(name="Lockdown")
+        embed.add_field(name='Used By',
+                        value='{0.mention}'.format(ctx.message.author),
+                        inline=False)
+        embed.add_field(name='Games', value='**{0}**\n**{1}**'.format(g1, g2),
+                        inline=False)
+        embed.add_field(name='Result',
+                        value='Effected games have been locked',
+                        inline=False)
+        embed.add_field(name='Locking', value='True Lock', inline=False)
+        embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
+        await ctx.message.channel.send(embed=embed)
+
+    @commands.command(pass_context=True)
+    async def mindcontrol(self, ctx):
+        embed=discord.Embed(title=' ',
+                            colour=0x1ece6d)
+        embed.set_author(name="Mind Control")
+        embed.add_field(name='Used By',
+                        value='{0.mention}'.format(ctx.message.author),
+                        inline=False)
+        embed.add_field(name='Member Effected', value='{0.mention}'.format(ctx.message.mentions[0]),
+                        inline=False)
+        embed.add_field(name='Result',
+                        value='Effected member must use one of their powers',
                         inline=False)
         embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
         await ctx.message.channel.send(embed=embed)
