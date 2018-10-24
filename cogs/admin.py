@@ -28,8 +28,8 @@ class Admin:
     @commands.command(pass_context=True)
     async def help(self, ctx):
         embed=discord.Embed(
-            title="Sly do you read me???",
-            description="This describes all the commands that Bentley understands", color=0x1ece6d
+            title="\n",
+            color=0x1ece6d
         )
 
         embed.set_author(name="HELP")

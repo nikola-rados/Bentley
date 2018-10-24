@@ -34,7 +34,8 @@ class Powers:
             return
         else:
             if self.earned_power():
-                await message.channel.send('Congradulations {0.mention}, you\'ve earned **{1}**!'.format(message.author, self.roll_box()))
+                ch = self.bot.get_channel(501943623634518046)
+                await ch.send('Congradulations {0.mention}, you\'ve earned **{1}**!'.format(message.author, self.roll_box()))
 
 def setup(bot):
     bot.add_cog(Powers(bot))

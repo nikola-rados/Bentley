@@ -11,6 +11,7 @@ extensions = ['cogs.admin', 'cogs.powers']
 
 @bot.event
 async def on_ready():
+    await bot.change_presence(game=discord.Game(name="!help"))
     print('Assuming direct control.')
 
 
