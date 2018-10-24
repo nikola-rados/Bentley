@@ -51,3 +51,7 @@ COMMON = ["Bonus Round",
           "1DOWN"]
 
 COMMON_DROP_RATE = 99
+
+THUMBSUP = u"\U0001F44D"
+
+THUMBSDOWN = u"\U0001F44E"
