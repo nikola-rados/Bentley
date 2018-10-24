@@ -17,6 +17,11 @@ class Powers:
     def random_list_item(self, list):
         return list[random.randint(0, len(list)-1)]
 
+    def scrambled(self, orig):
+        dest = orig[:]
+        random.shuffle(dest)
+        return dest
+
     def roll_box(self):
     	roll = random.randint(1, 100)
 
@@ -49,6 +54,54 @@ class Powers:
                               'add that to the list'.format(message.author,
                                                             self.roll_box(),
                                                             mod))
+
+    @commands.command(pass_context=True)
+    async def powerhelp(self, ctx):
+        embed=discord.Embed(
+            title=' ',
+            color=0x1ece6d
+        )
+
+        embed.set_author(name="Power Help Page")
+        embed.add_field(name="!clusterbomb \"game1\" \"game2\" \"game3\"",
+                        value="This will produce the result of the \"_Cluster "
+                              "Bomb_\" power.  Along with the command, give "
+                              "Bentley the 3 games you wish to effect.",
+                        inline=True)
+        await ctx.channel.send(embed=embed)
+
+    @commands.command(pass_context=True)
+    async def clusterbomb(self, ctx, g1, g2, g3):
+        # get result
+        ordered_list = [g1, g2, g3]
+        scrambled_list = self.scrambled([g1, g2, g3])
+        result_list = []
+        for o, s in zip(ordered_list, scrambled_list):
+            if o == s:
+                result_list.append((o, None))
+            else:
+                result_list.append((o, s))
+
+        # what changed?
+        embed=discord.Embed(title=' ',
+                            colour=0x1ece6d)
+        embed.set_author(name="Cluster Bomb Result")
+        embed.add_field(name='Used By',
+                        value='{0.mention}'.format(ctx.message.author),
+                        inline=False)
+        embed.add_field(name='Swaps',
+                        value='**{0}** swap with **{1}**\n'
+                              '**{2}** swap with **{3}**\n'
+                              '**{4}** swap with **{5}**'
+                              .format(result_list[0][0],
+                                      result_list[0][1],
+                                      result_list[1][0],
+                                      result_list[1][1],
+                                      result_list[2][0],
+                                      result_list[2][1]),
+                        inline=False)
+        embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
+        await ctx.message.channel.send(embed=embed)
 
 def setup(bot):
     bot.add_cog(Powers(bot))

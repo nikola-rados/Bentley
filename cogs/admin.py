@@ -54,20 +54,7 @@ class Admin:
                         inline=True)
 
         await ctx.channel.send(embed=embed)
-
-    @commands.command(pass_context=True)
-    async def powerhelp(self, ctx):
-        embed=discord.Embed(
-            title="\n",
-            color=0x1ece6d
-        )
-
-        embed.set_author(name="Power Command Page")
-        embed.add_field(name="None Yet",
-                        value="nothing",
-                        inline=True)
-
-        await ctx.channel.send(embed=embed)
+        
 
 def setup(bot):
     bot.add_cog(Admin(bot))

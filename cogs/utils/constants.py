@@ -11,46 +11,48 @@ REPLIES = [
 
 BENTLEY_ID = 502984352494256140
 
-POWER_DROP_RATE = 1
+POWER_DROP_RATE_D = 1
+POWER_DROP_RATE_M = 2
 
-LEGENDARY = ["Bass Ackwards",
+LEGENDARY = ["Cluster Bomb",
              "Everybody Shut Up",
-             "National Debate",
-             "No U",
-             "Overdrive",
-             "Pecking Order",
-             "Pickpocket"]
+             "Lockdown",
+             "Mind Control",
+             "Pickpocket",
+             "Skeleton Key",
+             "EMP"]
 
-LEGENDARY_DROP_RATE = 4
+LEGENDARY_DROP_RATE = 5
 
-EPIC = ["Age Before Beauty",
-        "DEFCON 4",
-        "Double Jeopardy",
-        "Jack in the Box",
-        "Predator Missle",
+EPIC = ["Care Package",
+        "Overdrive",
+        "Silence",
+        "Padlock",
+        "Picklock",
         "Prime Minister",
-        "Suspension",
-        "Tactical Nuke",
-        "The Upsidedown"]
+        "The Upsidedown",
+        "Sacrificial Pact"]
 
-EPIC_DROP_RATE = 14
+EPIC_DROP_RATE = 20
 
-RARE = ["Cluster Bomb",
-        "Hostile Takeover",
-        "Premier",
-        "RPG Enthusiast",
-        "Monkey Switch",
-        "The Senate"]
+RARE = ["Key",
+        "Lock",
+        "3 Down",
+        "3 Up",
+        "Frenemies",
+        "Equality",
+        "Evolve"]
 
-RARE_DROP_RATE = 54
+RARE_DROP_RATE = 55
 
-COMMON = ["Bonus Round",
-          "Over-hyped",
-          "Quickfire",
-          "1UP",
-          "1DOWN"]
+COMMON = ["Mayor",
+          "Quick Fire",
+          "Pay to Win",
+          "Buying Votes",
+          "Graceful Dice",
+          "Skull Dice"]
 
-COMMON_DROP_RATE = 99
+COMMON_DROP_RATE = 100
 
 THUMBSUP = u"\U0001F44D"
 
