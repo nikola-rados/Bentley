@@ -63,6 +63,11 @@ class Powers:
         )
 
         embed.set_author(name="Power Help Page")
+        embed.add_field(name="!buyingvotes \"power\"",
+                        value="This will produce the result of the "
+                              "\"_Buying Votes_\" power.  Give Bentley the _power_ "
+                              "you wish to exchange.",
+                        inline=True)
         embed.add_field(name="!carepackage",
                         value="This will produce the result of the "
                               "\"_Care Package_\" power.",
@@ -98,6 +103,10 @@ class Powers:
                         value="This will produce the result of the "
                               "\"_Frenemies_\" power.",
                         inline=True)
+        embed.add_field(name="!gracefuldice",
+                        value="This will produce the result of the "
+                              "\"_Graceful Dice_\" power.",
+                        inline=True)
         embed.add_field(name="!key \"game\"",
                         value="This will produce the result of the "
                               "\"_Key_\" power.  Give Bentley the game "
@@ -113,6 +122,10 @@ class Powers:
                               "\"_Lockdown_\" power.  Give Bentley the two "
                               "games you wish to effect.",
                         inline=True)
+        embed.add_field(name="!mayor",
+                        value="This will produce the result of the "
+                              "\"_Mayor_\" power.",
+                        inline=True)
         embed.add_field(name="!mindcontrol @member",
                         value="This will produce the result of the "
                               "\"_Mind Control_\" power.  Mention the _user_ "
@@ -126,6 +139,11 @@ class Powers:
                         value="This will produce the result of the "
                               "\"_Padlock_\" power.  Give Bentley the game "
                               "you wish to effect.",
+                        inline=True)
+        embed.add_field(name="!paytowin \"power1\" \"power2\"",
+                        value="This will produce the result of the "
+                              "\"_Pay to Win_\" power. Pass in the _powers_ you "
+                              "wish to exchange.",
                         inline=True)
         embed.add_field(name="!picklock \"game\"",
                         value="This will produce the result of the "
@@ -157,6 +175,10 @@ class Powers:
                               "\"_Skeleton Key_\" power.  Give Bentley the two "
                               "games you wish to effect.",
                         inline=True)
+        embed.add_field(name="!skulldice",
+                        value="This will produce the result of the "
+                              "\"_Skull Dice_\" power.",
+                        inline=True)
         embed.add_field(name="!theupsidedown",
                         value="This will produce the result of the "
                               "\"_The Upsidedown_\" power.  This power must be"
@@ -171,6 +193,10 @@ class Powers:
                         value="This will produce the result of the "
                               "\"_3 Up_\" power.  Pass in the game you wish "
                               "to effect.",
+                        inline=True)
+        embed.add_field(name="!quickfire",
+                        value="This will produce the result of the "
+                              "\"_Quick Fire_\" power.",
                         inline=True)
         await ctx.channel.send(embed=embed)
 
@@ -211,7 +237,8 @@ class Powers:
                         inline=False)
         embed.add_field(name='Locking', value='True Lock', inline=False)
         embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
-        await ctx.message.channel.send(embed=embed)
+        voting_ch = self.bot.get_channel(int(os.environ['VOTING']))
+        await voting_ch.send(embed=embed)
 
     @commands.command(pass_context=True)
     async def everybodyshutup(self, ctx, game, rank_curr, rank_new):
@@ -227,7 +254,8 @@ class Powers:
                         inline=False)
         embed.add_field(name='Locking', value='True Lock', inline=False)
         embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
-        await ctx.message.channel.send(embed=embed)
+        voting_ch = self.bot.get_channel(int(os.environ['VOTING']))
+        await voting_ch.send(embed=embed)
 
     @commands.command(pass_context=True)
     async def lockdown(self, ctx, g1, g2):
@@ -244,7 +272,8 @@ class Powers:
                         inline=False)
         embed.add_field(name='Locking', value='True Lock', inline=False)
         embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
-        await ctx.message.channel.send(embed=embed)
+        voting_ch = self.bot.get_channel(int(os.environ['VOTING']))
+        await voting_ch.send(embed=embed)
 
     @commands.command(pass_context=True)
     async def mindcontrol(self, ctx):
@@ -260,7 +289,8 @@ class Powers:
                         value='Effected member must use one of their powers',
                         inline=False)
         embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
-        await ctx.message.channel.send(embed=embed)
+        voting_ch = self.bot.get_channel(int(os.environ['VOTING']))
+        await voting_ch.send(embed=embed)
 
     @commands.command(pass_context=True)
     async def pickpocket(self, ctx, member, power):
@@ -276,7 +306,8 @@ class Powers:
                         value='**{0}** has been stolen'.format(power),
                         inline=False)
         embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
-        await ctx.message.channel.send(embed=embed)
+        voting_ch = self.bot.get_channel(int(os.environ['VOTING']))
+        await voting_ch.send(embed=embed)
 
     @commands.command(pass_context=True)
     async def skeletonkey(self, ctx, g1, g2):
@@ -293,7 +324,8 @@ class Powers:
                         inline=False)
         embed.add_field(name='Key', value='True Key', inline=False)
         embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
-        await ctx.message.channel.send(embed=embed)
+        voting_ch = self.bot.get_channel(int(os.environ['VOTING']))
+        await voting_ch.send(embed=embed)
 
     @commands.command(pass_context=True)
     async def carepackage(self, ctx):
@@ -308,7 +340,8 @@ class Powers:
                         value='Power earned is **{0}**.\nYou must use it immediately.'.format(power),
                         inline=False)
         embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
-        await ctx.message.channel.send(embed=embed)
+        voting_ch = self.bot.get_channel(int(os.environ['VOTING']))
+        await voting_ch.send(embed=embed)
 
     @commands.command(pass_context=True)
     async def emp(self, ctx):
@@ -322,7 +355,8 @@ class Powers:
                         value='No more powers for the remainder of the week.',
                         inline=False)
         embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
-        await ctx.message.channel.send(embed=embed)
+        voting_ch = self.bot.get_channel(int(os.environ['VOTING']))
+        await voting_ch.send(embed=embed)
 
     @commands.command(pass_context=True)
     async def overdrive(self, ctx):
@@ -337,7 +371,8 @@ class Powers:
                               'The following week you will not be able to vote.',
                         inline=False)
         embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
-        await ctx.message.channel.send(embed=embed)
+        voting_ch = self.bot.get_channel(int(os.environ['VOTING']))
+        await voting_ch.send(embed=embed)
 
     @commands.command(pass_context=True)
     async def silence(self, ctx):
@@ -353,7 +388,8 @@ class Powers:
                         value='Effected member cannot use powers for the rest of the week',
                         inline=False)
         embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
-        await ctx.message.channel.send(embed=embed)
+        voting_ch = self.bot.get_channel(int(os.environ['VOTING']))
+        await voting_ch.send(embed=embed)
 
     @commands.command(pass_context=True)
     async def padlock(self, ctx, g1):
@@ -370,7 +406,8 @@ class Powers:
                         inline=False)
         embed.add_field(name='Locking', value='Advanced Lock', inline=False)
         embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
-        await ctx.message.channel.send(embed=embed)
+        voting_ch = self.bot.get_channel(int(os.environ['VOTING']))
+        await voting_ch.send(embed=embed)
 
     @commands.command(pass_context=True)
     async def picklock(self, ctx, g1):
@@ -387,7 +424,8 @@ class Powers:
                         inline=False)
         embed.add_field(name='Key', value='Advanced Key', inline=False)
         embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
-        await ctx.message.channel.send(embed=embed)
+        voting_ch = self.bot.get_channel(int(os.environ['VOTING']))
+        await voting_ch.send(embed=embed)
 
     @commands.command(pass_context=True)
     async def primeminister(self, ctx):
@@ -401,7 +439,8 @@ class Powers:
                         value='User may add 3 extra votes to a motion of their choosing.',
                         inline=False)
         embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
-        await ctx.message.channel.send(embed=embed)
+        voting_ch = self.bot.get_channel(int(os.environ['VOTING']))
+        await voting_ch.send(embed=embed)
 
     @commands.command(pass_context=True)
     async def theupsidedown(self, ctx):
@@ -415,7 +454,8 @@ class Powers:
                         value='Most recent motion is locked and the result is flipped.',
                         inline=False)
         embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
-        await ctx.message.channel.send(embed=embed)
+        voting_ch = self.bot.get_channel(int(os.environ['VOTING']))
+        await voting_ch.send(embed=embed)
 
     @commands.command(pass_context=True)
     async def sacrificialpact(self, ctx):
@@ -432,7 +472,8 @@ class Powers:
                               'User cannot vote the following week.',
                         inline=False)
         embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
-        await ctx.message.channel.send(embed=embed)
+        voting_ch = self.bot.get_channel(int(os.environ['VOTING']))
+        await voting_ch.send(embed=embed)
 
     @commands.command(pass_context=True)
     async def lock(self, ctx, g1):
@@ -449,7 +490,8 @@ class Powers:
                         inline=False)
         embed.add_field(name='Locking', value='Soft Lock', inline=False)
         embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
-        await ctx.message.channel.send(embed=embed)
+        voting_ch = self.bot.get_channel(int(os.environ['VOTING']))
+        await voting_ch.send(embed=embed)
 
     @commands.command(pass_context=True)
     async def key(self, ctx, g1):
@@ -466,7 +508,8 @@ class Powers:
                         inline=False)
         embed.add_field(name='Key', value='Soft Key', inline=False)
         embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
-        await ctx.message.channel.send(embed=embed)
+        voting_ch = self.bot.get_channel(int(os.environ['VOTING']))
+        await voting_ch.send(embed=embed)
 
     @commands.command(pass_context=True)
     async def threedown(self, ctx, game, rank_curr):
@@ -488,7 +531,8 @@ class Powers:
                             inline=False)
             embed.add_field(name='Locking', value='Soft Lock', inline=False)
             embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
-            await ctx.message.channel.send(embed=embed)
+            voting_ch = self.bot.get_channel(int(os.environ['VOTING']))
+            await voting_ch.send(embed=embed)
 
     @commands.command(pass_context=True)
     async def threeup(self, ctx, game, rank_curr):
@@ -512,7 +556,8 @@ class Powers:
                             inline=False)
             embed.add_field(name='Locking', value='Soft Lock', inline=False)
             embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
-            await ctx.message.channel.send(embed=embed)
+            voting_ch = self.bot.get_channel(int(os.environ['VOTING']))
+            await voting_ch.send(embed=embed)
 
     @commands.command(pass_context=True)
     async def frenemies(self, ctx):
@@ -528,7 +573,8 @@ class Powers:
                         value='Your partner is {0.mention}.'.format(chosen_one),
                         inline=False)
         embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
-        await ctx.message.channel.send(embed=embed)
+        voting_ch = self.bot.get_channel(int(os.environ['VOTING']))
+        await voting_ch.send(embed=embed)
 
     @commands.command(pass_context=True)
     async def equality(self, ctx, member, your_power, their_power):
@@ -570,7 +616,8 @@ class Powers:
                                       their_power, their_new_power),
                         inline=False)
         embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
-        await ctx.message.channel.send(embed=embed)
+        voting_ch = self.bot.get_channel(int(os.environ['VOTING']))
+        await voting_ch.send(embed=embed)
 
     @commands.command(pass_context=True)
     async def evolve(self, ctx, member, their_power):
@@ -604,7 +651,129 @@ class Powers:
                                           their_new_power),
                             inline=False)
             embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
-            await ctx.message.channel.send(embed=embed)
+            voting_ch = self.bot.get_channel(int(os.environ['VOTING']))
+            await voting_ch.send(embed=embed)
+
+    @commands.command(pass_context=True)
+    async def mayor(self, ctx):
+        embed=discord.Embed(title=' ',
+                            colour=0x1ece6d)
+        embed.set_author(name="Mayor")
+        embed.add_field(name='Used By',
+                        value='{0.mention}'.format(ctx.message.author),
+                        inline=False)
+        embed.add_field(name='Result',
+                        value='User may add 1 extra vote to a motion of their choosing.',
+                        inline=False)
+        embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
+        voting_ch = self.bot.get_channel(int(os.environ['VOTING']))
+        await voting_ch.send(embed=embed)
+
+    @commands.command(pass_context=True)
+    async def quickfire(self, ctx):
+        embed=discord.Embed(title=' ',
+                            colour=0x1ece6d)
+        embed.set_author(name="Quick Fire")
+        embed.add_field(name='Used By',
+                        value='{0.mention}'.format(ctx.message.author),
+                        inline=False)
+        embed.add_field(name='Result',
+                        value='Most recent motion will recieve a {0}.'.format(constants.THUMBSUP),
+                        inline=False)
+        embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
+        voting_ch = self.bot.get_channel(int(os.environ['VOTING']))
+        await voting_ch.send(embed=embed)
+
+    @commands.command(pass_context=True)
+    async def paytowin(self, ctx, power1, power2):
+        if power1 in constants.LEGENDARY or power2 in constants.LEGENDARY:
+            await ctx.message.channel.send('{0.mention}, you cannot ugrade Legendary powers.'.format(ctx.message.author))
+        else:
+            result = ''
+            if power1 in constants.EPIC and power2 in constants.EPIC:
+                result = self.random_list_item(constants.LEGENDARY)
+            elif power1 in constants.RARE and power2 in constants.RARE:
+                result = self.random_list_item(constants.EPIC)
+            elif power1 in constants.COMMON and power2 in constants.COMMON:
+                result = self.random_list_item(constants.RARE)
+            else:
+                await ctx.message.channel.send('{0.mention}, powers are not in the same tier.'.format(ctx.message.author))
+                return
+
+        embed=discord.Embed(title=' ',
+                            colour=0x1ece6d)
+        embed.set_author(name="Pay to Win")
+        embed.add_field(name='Used By',
+                        value='{0.mention}'.format(ctx.message.author),
+                        inline=False)
+        embed.add_field(name='Result',
+                        value='**{0}** + **{1}** --> **{2}**.'.format(power1, power2, result),
+                        inline=False)
+        embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
+        voting_ch = self.bot.get_channel(int(os.environ['VOTING']))
+        await voting_ch.send(embed=embed)
+
+    @commands.command(pass_context=True)
+    async def buyingvotes(self, ctx, power):
+        num_votes = 0
+        if power in constants.LEGENDARY:
+            num_votes = 6
+        elif power in constants.EPIC:
+            num_votes = 4
+        elif power in constants.RARE:
+            num_votes = 2
+        elif power in constants.COMMON:
+            num_votes = 1
+        else:
+            ctx.message.channel.send('{0.mention}, power does not exist.'.format(ctx.message.author))
+            return
+
+        embed=discord.Embed(title=' ',
+                            colour=0x1ece6d)
+        embed.set_author(name="Buying Votes")
+        embed.add_field(name='Used By',
+                        value='{0.mention}'.format(ctx.message.author),
+                        inline=False)
+        embed.add_field(name='Result',
+                        value='**{0}** --> **{1}** votes.'.format(power, num_votes),
+                        inline=False)
+        embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
+        voting_ch = self.bot.get_channel(int(os.environ['VOTING']))
+        await voting_ch.send(embed=embed)
+
+    @commands.command(pass_context=True)
+    async def gracefuldice(self, ctx):
+        votes = random.randint(0, 2)
+
+        embed=discord.Embed(title=' ',
+                            colour=0x1ece6d)
+        embed.set_author(name="Graceful Dice")
+        embed.add_field(name='Used By',
+                        value='{0.mention}'.format(ctx.message.author),
+                        inline=False)
+        embed.add_field(name='Result',
+                        value='**{0}** extra {1} for most recent motion.'.format(votes, constants.THUMBSUP),
+                        inline=False)
+        embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
+        voting_ch = self.bot.get_channel(int(os.environ['VOTING']))
+        await voting_ch.send(embed=embed)
+
+    @commands.command(pass_context=True)
+    async def skulldice(self, ctx):
+        votes = random.randint(0, 2)
+
+        embed=discord.Embed(title=' ',
+                            colour=0x1ece6d)
+        embed.set_author(name="Skull Dice")
+        embed.add_field(name='Used By',
+                        value='{0.mention}'.format(ctx.message.author),
+                        inline=False)
+        embed.add_field(name='Result',
+                        value='**{0}** extra {1} for most recent motion.'.format(votes, constants.THUMBSDOWN),
+                        inline=False)
+        embed.add_field(name='Notify', value='<@{}>'.format(os.environ['NOL']), inline=False)
+        voting_ch = self.bot.get_channel(int(os.environ['VOTING']))
+        await voting_ch.send(embed=embed)
 
 def setup(bot):
     bot.add_cog(Powers(bot))
