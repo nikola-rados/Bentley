@@ -12,7 +12,14 @@ class Motions:
 
     async def on_message(self, message):
         ch = discord.utils.get(self.bot.get_all_channels(), guild__name='Desire Index', name='voting')
-        if message.author == self.bot.user and message.content == '' and message.channel == ch:
+        if message.author == self.bot.user and message.channel == ch:
+            expected =['Game', 'Motion', 'Put Forward By', 'Notify']
+            check = []
+            for field in message.embeds[0].fields:
+                check.append(field.name)
+            for e in expected:
+                if e not in check:
+                    return
             await message.add_reaction(constants.THUMBSUP)
             await message.add_reaction(constants.THUMBSDOWN)
 
