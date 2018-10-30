@@ -37,12 +37,14 @@ class Admin:
         embed.add_field(name="!help",
                         value="What you are seeing now",
                         inline=True)
-        embed.add_field(name="!motion \"name\" current new",
+        embed.add_field(name="!motion \"name\" current new \"explanation\" ",
                         value="This will produce a motion in the voting "
                               "channel where the _\"name\"_ is the name of "
                               "the game you wish to motion, _current_ is its "
                               "rank on the index and _new_ is where you wish "
-                              "to move it.",
+                              "to move it.  To place a motion you must put "
+                              "forward the reason for the change as the "
+                              "_explanation_.",
                         inline=True)
         embed.add_field(name="!notify",
                         value="You will be given the Council role which will "
@@ -54,7 +56,7 @@ class Admin:
                         inline=True)
 
         await ctx.channel.send(embed=embed)
-        
+
 
 def setup(bot):
     bot.add_cog(Admin(bot))

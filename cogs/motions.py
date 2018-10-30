@@ -13,7 +13,7 @@ class Motions:
     async def on_message(self, message):
         ch = discord.utils.get(self.bot.get_all_channels(), guild__name='Desire Index', name='voting')
         if message.author == self.bot.user and message.channel == ch:
-            expected =['Game', 'Motion', 'Put Forward By', 'Notify']
+            expected =['Game', 'Motion', 'Explanation', 'Put Forward By', 'Notify']
             check = []
             for field in message.embeds[0].fields:
                 check.append(field.name)
@@ -25,7 +25,7 @@ class Motions:
 
 
     @commands.command(pass_context=True)
-    async def motion(self, ctx, name_of_game, rank_curr, rank_new):
+    async def motion(self, ctx, name_of_game, rank_curr, rank_new, exp):
         # clear command
         ch = ctx.message.channel
         messages = await ch.history(limit=1).flatten()
@@ -38,6 +38,7 @@ class Motions:
                             colour=0x1ece6d)
         embed.add_field(name='Game', value=name_of_game, inline=False)
         embed.add_field(name='Motion', value='Rank {0} --> Rank {1}'.format(rank_curr, rank_new), inline=False)
+        embed.add_field(name='Explanation', value='{0}'.format(exp), inline=False)
         embed.add_field(name='Put Forward By', value='{0.mention}'.format(ctx.message.author), inline=False)
         embed.add_field(name='Notify', value='{0.mention}'.format(role))
         await voting_ch.send(embed=embed)
