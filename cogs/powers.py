@@ -64,139 +64,102 @@ class Powers:
 
         embed.set_author(name="Power Help Page")
         embed.add_field(name="!buyingvotes \"power\"",
-                        value="This will produce the result of the "
-                              "\"_Buying Votes_\" power.  Give Bentley the _power_ "
+                        value="Give Bentley the _power_ "
                               "you wish to exchange.",
                         inline=True)
         embed.add_field(name="!carepackage",
-                        value="This will produce the result of the "
-                              "\"_Care Package_\" power.",
                         inline=True)
         embed.add_field(name="!clusterbomb \"game1\" \"game2\" \"game3\"",
-                        value="This will produce the result of the \"_Cluster "
-                              "Bomb_\" power.  Along with the command, give "
+                        value="Along with the command, give "
                               "Bentley the 3 games you wish to effect.",
                         inline=True)
         embed.add_field(name="!emp",
-                        value="This will produce the result of the "
-                              "\"_EMP_\" power.",
                         inline=True)
         embed.add_field(name="!equality @member \"your power\" \"their power\"",
-                        value="This will produce the result of the "
-                              "\"_Equality_\" power.  Choose the _member_ you "
+                        value="Choose the _member_ you "
                               "wish to effect as well as the _powers_ you wish "
                               " to effect.",
                         inline=True)
         embed.add_field(name="!evolve @member \"their power\"",
-                        value="This will produce the result of the "
-                              "\"_Evolve_\" power.  Give Bentley the _member_ "
+                        value="Give Bentley the _member_ "
                               "you wish to effect and the _power_ you wish to effect.",
                         inline=True)
         embed.add_field(name="!everybodyshutup \"game\" current new",
-                        value="This will produce the result of the "
-                              "\"_Everybody Shut Up_\" power.  The _game_ is "
+                        value="The _game_ is "
                               "the game you wish to move.  _current_ is its "
                               "position on the index and _new_ is where you "
                               "are moving it to.",
                         inline=True)
         embed.add_field(name="!frenemies",
-                        value="This will produce the result of the "
-                              "\"_Frenemies_\" power.",
                         inline=True)
         embed.add_field(name="!gracefuldice",
-                        value="This will produce the result of the "
-                              "\"_Graceful Dice_\" power.",
                         inline=True)
         embed.add_field(name="!key \"game\"",
-                        value="This will produce the result of the "
-                              "\"_Key_\" power.  Give Bentley the game "
+                        value="Give Bentley the game "
                               "you wish to effect.",
                         inline=True)
         embed.add_field(name="!lock \"game\"",
-                        value="This will produce the result of the "
-                              "\"_Lock_\" power.  Give Bentley the game "
+                        value="Give Bentley the game "
                               "you wish to effect.",
                         inline=True)
         embed.add_field(name="!lockdown \"game1\" \"game2\"",
-                        value="This will produce the result of the "
-                              "\"_Lockdown_\" power.  Give Bentley the two "
+                        value="Give Bentley the two "
                               "games you wish to effect.",
                         inline=True)
         embed.add_field(name="!mayor",
-                        value="This will produce the result of the "
-                              "\"_Mayor_\" power.",
                         inline=True)
         embed.add_field(name="!mindcontrol @member",
-                        value="This will produce the result of the "
-                              "\"_Mind Control_\" power.  Mention the _user_ "
+                        value="Mention the _user_ "
                               "you wish to effect.",
                         inline=True)
         embed.add_field(name="!overdrive",
-                        value="This will produce the result of the "
-                              "\"_Overdrive_\" power.",
                         inline=True)
         embed.add_field(name="!padlock \"game\"",
-                        value="This will produce the result of the "
-                              "\"_Padlock_\" power.  Give Bentley the game "
+                        value="Give Bentley the game "
                               "you wish to effect.",
                         inline=True)
         embed.add_field(name="!paytowin \"power1\" \"power2\"",
-                        value="This will produce the result of the "
-                              "\"_Pay to Win_\" power. Pass in the _powers_ you "
+                        value="Pass in the _powers_ you "
                               "wish to exchange.",
                         inline=True)
         embed.add_field(name="!picklock \"game\"",
-                        value="This will produce the result of the "
-                              "\"_Picklock_\" power.  Give Bentley the game "
+                        value="Give Bentley the game "
                               "you wish to effect.",
                         inline=True)
         embed.add_field(name="!pickpocket @member \"power\"",
-                        value="This will produce the result of the "
-                              "\"_Pickpocket_\" power.  Mention the _user_ "
+                        value="Mention the _user_ "
                               "you wish to effect and the _power_ you wish to "
                               "take.",
                         inline=True)
         embed.add_field(name="!primeminister",
-                        value="This will produce the result of the "
-                              "\"_Prime Minister_\" power.",
                         inline=True)
         embed.add_field(name="!sacrificialpact @member",
-                        value="This will produce the result of the "
-                              "\"_Sacrificial Pact_\" power.  Mention the member you wish"
+                        value="Mention the member you wish"
                               "to effect.",
                         inline=True)
         embed.add_field(name="!silence @member",
-                        value="This will produce the result of the "
-                              "\"_Silence_\" power.  Mention the member you wish"
+                        value="Mention the member you wish"
                               "to effect.",
                         inline=True)
         embed.add_field(name="!skeletonkey \"game1\" \"game2\"",
-                        value="This will produce the result of the "
-                              "\"_Skeleton Key_\" power.  Give Bentley the two "
+                        value="Give Bentley the two "
                               "games you wish to effect.",
                         inline=True)
         embed.add_field(name="!skulldice",
-                        value="This will produce the result of the "
-                              "\"_Skull Dice_\" power.",
                         inline=True)
         embed.add_field(name="!theupsidedown",
-                        value="This will produce the result of the "
-                              "\"_The Upsidedown_\" power.  This power must be"
+                        value="This power must be"
                               "used upon receiving it.",
                         inline=True)
         embed.add_field(name="!threedown \"game\"",
-                        value="This will produce the result of the "
-                              "\"_3 Down_\" power.  Pass in the game you wish "
+                        value="Pass in the game you wish "
                               "to effect.",
                         inline=True)
         embed.add_field(name="!threeup \"game\"",
-                        value="This will produce the result of the "
-                              "\"_3 Up_\" power.  Pass in the game you wish "
+                        value="Pass in the game you wish "
                               "to effect.",
                         inline=True)
         embed.add_field(name="!quickfire",
-                        value="This will produce the result of the "
-                              "\"_Quick Fire_\" power.",
                         inline=True)
         await ctx.channel.send(embed=embed)
 
