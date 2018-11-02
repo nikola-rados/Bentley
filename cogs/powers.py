@@ -96,6 +96,7 @@ class Powers:
                         value='',
                         inline=True)
         embed.add_field(name="!gracefuldice",
+                        value="",
                         inline=True)
         embed.add_field(name="!key \"game\"",
                         value="Give Bentley the game "
