@@ -189,7 +189,7 @@ class Powers:
                         value="Pass in the game you wish "
                               "to effect and the _current_ rank it has on the index.",
                         inline=False)
-        embed.add_field(name="!threeup \"game\"",
+        embed.add_field(name="!threeup \"game\" current",
                         value="Pass in the game you wish "
                               "to effect and the _current_ rank it has on the index.",
                         inline=False)
