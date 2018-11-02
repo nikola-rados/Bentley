@@ -63,13 +63,28 @@ class Powers:
         )
 
         embed.set_author(name="Power Help Page")
-        embed.add_field(name="!buyingvotes \"power\"",
-                        value="Give Bentley the _power_ "
-                              "you wish to exchange.",
+        embed.add_field(name="!legendary",
+                        value="Commands for Legendary powers",
                         inline=False)
-        embed.add_field(name="!carepackage",
-                        value='No futher parameters.',
+        embed.add_field(name="!epic",
+                        value="Commands for Epic powers",
                         inline=False)
+        embed.add_field(name="!rare",
+                        value="Commands for Rare powers",
+                        inline=False)
+        embed.add_field(name="!common",
+                        value="Commands for Common powers",
+                        inline=False)
+        await ctx.channel.send(embed=embed)
+
+    @commands.command(pass_context=True)
+    async def legendary(self, ctx):
+        embed=discord.Embed(
+            title=' ',
+            color=0x1ece6d
+        )
+
+        embed.set_author(name="Legendary Power Help Page")
         embed.add_field(name="!clusterbomb \"game1\" \"game2\" \"game3\"",
                         value="Along with the command, give "
                               "Bentley the 3 games you wish to effect.",
@@ -77,6 +92,79 @@ class Powers:
         embed.add_field(name="!emp",
                         value='No futher parameters.',
                         inline=False)
+        embed.add_field(name="!everybodyshutup \"game\" current new",
+                        value="The _game_ is "
+                              "the game you wish to move.  _current_ is its "
+                              "position on the index and _new_ is where you "
+                              "are moving it to.",
+                        inline=False)
+        embed.add_field(name="!lockdown \"game1\" \"game2\"",
+                        value="Give Bentley the two "
+                              "games you wish to effect.",
+                        inline=False)
+        embed.add_field(name="!mindcontrol @member",
+                        value="Mention the _user_ "
+                              "you wish to effect.",
+                        inline=False)
+        embed.add_field(name="!pickpocket @member \"power\"",
+                        value="Mention the _user_ "
+                              "you wish to effect and the _power_ you wish to "
+                              "take.",
+                        inline=False)
+        embed.add_field(name="!skeletonkey \"game1\" \"game2\"",
+                        value="Give Bentley the two "
+                              "games you wish to effect.",
+                        inline=False)
+        await ctx.channel.send(embed=embed)
+
+
+    @commands.command(pass_context=True)
+    async def epic(self, ctx):
+        embed=discord.Embed(
+            title=' ',
+            color=0x1ece6d
+        )
+
+        embed.set_author(name="Epic Power Help Page")
+        embed.add_field(name="!carepackage",
+                        value='No futher parameters.',
+                        inline=False)
+        embed.add_field(name="!overdrive",
+                        value='No futher parameters.',
+                        inline=False)
+        embed.add_field(name="!silence @member",
+                        value="Mention the member you wish"
+                              "to effect.",
+                        inline=False)
+        embed.add_field(name="!padlock \"game\"",
+                        value="Give Bentley the game "
+                              "you wish to effect.",
+                        inline=False)
+        embed.add_field(name="!picklock \"game\"",
+                        value="Give Bentley the game "
+                              "you wish to effect.",
+                        inline=False)
+        embed.add_field(name="!primeminister",
+                        value='No futher parameters.',
+                        inline=False)
+        embed.add_field(name="!sacrificialpact @member",
+                        value="Mention the member you wish"
+                              "to effect.",
+                        inline=False)
+        embed.add_field(name="!theupsidedown",
+                        value="This power must be"
+                              "used upon receiving it.",
+                        inline=False)
+        await ctx.channel.send(embed=embed)
+
+    @commands.command(pass_context=True)
+    async def rare(self, ctx):
+        embed=discord.Embed(
+            title=' ',
+            color=0x1ece6d
+        )
+
+        embed.set_author(name="Rare Power Help Page")
         embed.add_field(name="!equality @member \"your power\" \"their power\"",
                         value="Choose the _member_ you "
                               "wish to effect as well as the _powers_ you wish "
@@ -86,16 +174,7 @@ class Powers:
                         value="Give Bentley the _member_ "
                               "you wish to effect and the _power_ you wish to effect.",
                         inline=False)
-        embed.add_field(name="!everybodyshutup \"game\" current new",
-                        value="The _game_ is "
-                              "the game you wish to move.  _current_ is its "
-                              "position on the index and _new_ is where you "
-                              "are moving it to.",
-                        inline=False)
         embed.add_field(name="!frenemies",
-                        value='No futher parameters.',
-                        inline=False)
-        embed.add_field(name="!gracefuldice",
                         value='No futher parameters.',
                         inline=False)
         embed.add_field(name="!key \"game\"",
@@ -106,66 +185,40 @@ class Powers:
                         value="Give Bentley the game "
                               "you wish to effect.",
                         inline=False)
-        embed.add_field(name="!lockdown \"game1\" \"game2\"",
-                        value="Give Bentley the two "
-                              "games you wish to effect.",
+        embed.add_field(name="!threedown \"game\" current",
+                        value="Pass in the game you wish "
+                              "to effect and the _current_ rank it has on the index.",
+                        inline=False)
+        embed.add_field(name="!threeup \"game\"",
+                        value="Pass in the game you wish "
+                              "to effect and the _current_ rank it has on the index.",
+                        inline=False)
+        await ctx.channel.send(embed=embed)
+
+    @commands.command(pass_context=True)
+    async def common(self, ctx):
+        embed=discord.Embed(
+            title=' ',
+            color=0x1ece6d
+        )
+
+        embed.set_author(name="Common Power Help Page")
+        embed.add_field(name="!buyingvotes \"power\"",
+                        value="Give Bentley the _power_ "
+                              "you wish to exchange.",
+                        inline=False)
+        embed.add_field(name="!gracefuldice",
+                        value='No futher parameters.',
                         inline=False)
         embed.add_field(name="!mayor",
                         value='No futher parameters.',
-                        inline=False)
-        embed.add_field(name="!mindcontrol @member",
-                        value="Mention the _user_ "
-                              "you wish to effect.",
-                        inline=False)
-        embed.add_field(name="!overdrive",
-                        value='No futher parameters.',
-                        inline=False)
-        embed.add_field(name="!padlock \"game\"",
-                        value="Give Bentley the game "
-                              "you wish to effect.",
                         inline=False)
         embed.add_field(name="!paytowin \"power1\" \"power2\"",
                         value="Pass in the _powers_ you "
                               "wish to exchange.",
                         inline=False)
-        embed.add_field(name="!picklock \"game\"",
-                        value="Give Bentley the game "
-                              "you wish to effect.",
-                        inline=False)
-        embed.add_field(name="!pickpocket @member \"power\"",
-                        value="Mention the _user_ "
-                              "you wish to effect and the _power_ you wish to "
-                              "take.",
-                        inline=False)
-        embed.add_field(name="!primeminister",
-                        value='No futher parameters.',
-                        inline=False)
-        embed.add_field(name="!sacrificialpact @member",
-                        value="Mention the member you wish"
-                              "to effect.",
-                        inline=False)
-        embed.add_field(name="!silence @member",
-                        value="Mention the member you wish"
-                              "to effect.",
-                        inline=False)
-        embed.add_field(name="!skeletonkey \"game1\" \"game2\"",
-                        value="Give Bentley the two "
-                              "games you wish to effect.",
-                        inline=False)
         embed.add_field(name="!skulldice",
                         value='No futher parameters.',
-                        inline=False)
-        embed.add_field(name="!theupsidedown",
-                        value="This power must be"
-                              "used upon receiving it.",
-                        inline=False)
-        embed.add_field(name="!threedown \"game\"",
-                        value="Pass in the game you wish "
-                              "to effect.",
-                        inline=False)
-        embed.add_field(name="!threeup \"game\"",
-                        value="Pass in the game you wish "
-                              "to effect.",
                         inline=False)
         embed.add_field(name="!quickfire",
                         value='No futher parameters.',
