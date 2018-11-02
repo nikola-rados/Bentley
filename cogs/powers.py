@@ -68,14 +68,14 @@ class Powers:
                               "you wish to exchange.",
                         inline=True)
         embed.add_field(name="!carepackage",
-                        value=' ',
+                        value='No futher parameters.',
                         inline=True)
         embed.add_field(name="!clusterbomb \"game1\" \"game2\" \"game3\"",
                         value="Along with the command, give "
                               "Bentley the 3 games you wish to effect.",
                         inline=True)
         embed.add_field(name="!emp",
-                        value=' ',
+                        value='No futher parameters.',
                         inline=True)
         embed.add_field(name="!equality @member \"your power\" \"their power\"",
                         value="Choose the _member_ you "
@@ -93,10 +93,10 @@ class Powers:
                               "are moving it to.",
                         inline=True)
         embed.add_field(name="!frenemies",
-                        value=' ',
+                        value='No futher parameters.',
                         inline=True)
         embed.add_field(name="!gracefuldice",
-                        value=' ',
+                        value='No futher parameters.',
                         inline=True)
         embed.add_field(name="!key \"game\"",
                         value="Give Bentley the game "
@@ -111,14 +111,14 @@ class Powers:
                               "games you wish to effect.",
                         inline=True)
         embed.add_field(name="!mayor",
-                        value=' ',
+                        value='No futher parameters.',
                         inline=True)
         embed.add_field(name="!mindcontrol @member",
                         value="Mention the _user_ "
                               "you wish to effect.",
                         inline=True)
         embed.add_field(name="!overdrive",
-                        value=' ',
+                        value='No futher parameters.',
                         inline=True)
         embed.add_field(name="!padlock \"game\"",
                         value="Give Bentley the game "
@@ -138,7 +138,7 @@ class Powers:
                               "take.",
                         inline=True)
         embed.add_field(name="!primeminister",
-                        value=' ',
+                        value='No futher parameters.',
                         inline=True)
         embed.add_field(name="!sacrificialpact @member",
                         value="Mention the member you wish"
@@ -153,7 +153,7 @@ class Powers:
                               "games you wish to effect.",
                         inline=True)
         embed.add_field(name="!skulldice",
-                        value=' ',
+                        value='No futher parameters.',
                         inline=True)
         embed.add_field(name="!theupsidedown",
                         value="This power must be"
@@ -168,7 +168,7 @@ class Powers:
                               "to effect.",
                         inline=True)
         embed.add_field(name="!quickfire",
-                        value=' ',
+                        value='No futher parameters.',
                         inline=True)
         await ctx.channel.send(embed=embed)
 
