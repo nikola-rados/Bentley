@@ -129,6 +129,11 @@ class Powers:
         embed.add_field(name="!carepackage",
                         value='No futher parameters.',
                         inline=False)
+        embed.add_field(name="!equality @member \"your power\" \"their power\"",
+                        value="Choose the _member_ you "
+                              "wish to effect as well as the _powers_ you wish "
+                              " to effect.",
+                        inline=False)
         embed.add_field(name="!overdrive",
                         value='No futher parameters.',
                         inline=False)
@@ -165,11 +170,6 @@ class Powers:
         )
 
         embed.set_author(name="Rare Power Help Page")
-        embed.add_field(name="!equality @member \"your power\" \"their power\"",
-                        value="Choose the _member_ you "
-                              "wish to effect as well as the _powers_ you wish "
-                              " to effect.",
-                        inline=False)
         embed.add_field(name="!evolve @member \"their power\"",
                         value="Give Bentley the _member_ "
                               "you wish to effect and the _power_ you wish to effect.",

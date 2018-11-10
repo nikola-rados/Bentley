@@ -31,6 +31,7 @@ EPIC = ["Care Package",
         "Picklock",
         "Prime Minister",
         "The Upsidedown",
+        "Equality",
         "Sacrificial Pact"]
 
 EPIC_DROP_RATE = 20
@@ -40,7 +41,6 @@ RARE = ["Key",
         "3 Down",
         "3 Up",
         "Frenemies",
-        "Equality",
         "Evolve"]
 
 RARE_DROP_RATE = 55
