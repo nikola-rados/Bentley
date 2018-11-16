@@ -148,7 +148,7 @@ class Placements:
                 await message.edit(embed=embed)
 
                 ch = self.bot.get_channel(int(os.environ['DISCUSSION']))
-                await ch.send('{0.mention}, thank you for you vote!'.format(ctx.message.author))
+                await ch.send('{0.mention}, thank you for your vote!'.format(ctx.message.author))
 
 
 def setup(bot):
