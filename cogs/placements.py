@@ -73,29 +73,36 @@ class Placements:
         messages = await ch.history(limit=1).flatten()
         await ch.delete_messages(messages)
 
-        # find previous message
+        # setup
         ch = discord.utils.get(self.bot.get_all_channels(), guild__name='Desire Index', name='voting')
         role = discord.utils.get(ctx.guild.role_hierarchy, name='Council')
-        async for message in ch.history(limit=200):
-            if message.author == self.bot.user:
-                expected =['**Game**', '**Code Number**', '**Placement Average**', '**Lowest Possible Rank**', '**Number of Votes**', '**Notify**']
-                check = []
-                name_of_game = ''
-                rank_max = ''
-                for field in message.embeds[0].fields:
-                    if field.name == expected[0]:
-                        name_of_game = field.value
+        expected = ['**Game**', '**Code Number**', '**Placement Average**', '**Lowest Possible Rank**', '**Number of Votes**', '**Notify**']
 
-                    elif field.name == expected[3]:
-                        rank_max = field.value
+        # find message to edit
+        async for message in ch.history().filter(lambda m: m.author == self.bot.user):
+            check = []
+            name_of_game = ''
+            rank_max = ''
 
-                    elif field.name == expected[1]:
-                        if place_num != field.value:
-                            continue
-                    check.append(field.name)
+            # field checks
+            matching = False
+            for field in message.embeds[0].fields:
+                check.append(field.name)
+                if field.name == expected[0]:
+                    name_of_game = field.value
+
+                elif field.name == expected[3]:
+                    rank_max = field.value
+
+                elif field.name == expected[1]:
+                    if place_num == field.value:
+                        matching = True
+
+            # MATCH!
+            if matching:
                 for e in expected:
                     if e not in check:
-                        return
+                        break
 
                 # val check
                 # first get rank_max proper
@@ -106,6 +113,7 @@ class Placements:
                     await ch.send('{0.mention}, that rank is not within the parameters.'.format(ctx.message.author))
                     return
 
+                # create path to json file
                 path = self.get_path(place_num)
 
                 with open(path, 'r') as f:
@@ -119,7 +127,7 @@ class Placements:
                 with open(path, 'w') as f:
                     json.dump(users, f)
 
-                # produce vote message
+                # update
                 with open(path, 'r') as f:
                     users = json.load(f)
 
