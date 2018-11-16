@@ -67,6 +67,11 @@ class Placements:
 
     @commands.command(pass_context=True)
     async def placement(self, ctx, place_num, rank):
+        # clear command
+        ch = ctx.message.channel
+        messages = await ch.history(limit=1).flatten()
+        await ch.delete_messages(messages)
+        
         # find previous message
         ch = discord.utils.get(self.bot.get_all_channels(), guild__name='Desire Index', name='voting')
         role = discord.utils.get(ctx.guild.role_hierarchy, name='Council')
