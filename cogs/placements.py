@@ -62,6 +62,7 @@ class Placements:
         embed.add_field(name='**Code Number**', value=place_num, inline=False)
         embed.add_field(name='**Placement Average**', value='Rank 0', inline=False)
         embed.add_field(name='**Lowest Possible Rank**', value='Rank {0}'.format(rank_max), inline=False)
+        embed.add_field(name='**Number of Votes**', value='0', inline=False)
         embed.add_field(name='**Notify**', value='{0.mention}'.format(role))
         await voting_ch.send(embed=embed)
 
@@ -77,7 +78,7 @@ class Placements:
         role = discord.utils.get(ctx.guild.role_hierarchy, name='Council')
         async for message in ch.history(limit=200):
             if message.author == self.bot.user:
-                expected =['**Game**', '**Code Number**', '**Placement Average**', '**Lowest Possible Rank**', '**Notify**']
+                expected =['**Game**', '**Code Number**', '**Placement Average**', '**Lowest Possible Rank**', '**Number of Votes**', '**Notify**']
                 check = []
                 name_of_game = ''
                 rank_max = ''
@@ -134,6 +135,7 @@ class Placements:
                 embed.add_field(name='**Code Number**', value=place_num, inline=False)
                 embed.add_field(name='**Placement Average**', value='Rank {0}'.format(round(sum/count)), inline=False)
                 embed.add_field(name='**Lowest Possible Rank**', value='{0}'.format(rank_max), inline=False)
+                embed.add_field(name='**Number of Votes**', value='{0}'.format(count), inline=False)
                 embed.add_field(name='**Notify**', value='{0.mention}'.format(role))
                 await message.edit(embed=embed)
 
