@@ -71,7 +71,7 @@ class Placements:
         ch = ctx.message.channel
         messages = await ch.history(limit=1).flatten()
         await ch.delete_messages(messages)
-        
+
         # find previous message
         ch = discord.utils.get(self.bot.get_all_channels(), guild__name='Desire Index', name='voting')
         role = discord.utils.get(ctx.guild.role_hierarchy, name='Council')
@@ -101,7 +101,8 @@ class Placements:
                 num = re.findall('\d+', rank_max)
 
                 if int(rank) < 1 or int(rank) > int(num[0]):
-                    await ctx.channel.send('{0.mention}, that rank is not within the parameters.'.format(ctx.message.author))
+                    ch = self.bot.get_channel(int(os.environ['DISCUSSION']))
+                    await ch.send('{0.mention}, that rank is not within the parameters.'.format(ctx.message.author))
                     return
 
                 path = self.get_path(place_num)
@@ -110,7 +111,8 @@ class Placements:
                     users = json.load(f)
 
                 if not (await self.update_data(users, ctx.message.author, int(rank))):
-                    await ctx.channel.send('{0.mention}, you have already made your placement vote.'.format(ctx.message.author))
+                    ch = self.bot.get_channel(int(os.environ['DISCUSSION']))
+                    await ch.send('{0.mention}, you have already made your placement vote.'.format(ctx.message.author))
                     return
 
                 with open(path, 'w') as f:
@@ -135,7 +137,8 @@ class Placements:
                 embed.add_field(name='**Notify**', value='{0.mention}'.format(role))
                 await message.edit(embed=embed)
 
-                await ctx.channel.send('{0.mention}, thank you for you vote!'.format(ctx.message.author))
+                ch = self.bot.get_channel(int(os.environ['DISCUSSION']))
+                await ch.send('{0.mention}, thank you for you vote!'.format(ctx.message.author))
 
 
 def setup(bot):
