@@ -50,6 +50,12 @@ class Admin:
                         value="You will be given the Council role which will "
                               "notify you of any new votes",
                         inline=True)
+        embed.add_field(name="!placement code_number rank",
+                        value="This places your vote for the weekly games "
+                              "entry rank.  The code number is the number of "
+                              "the weekly game (1 or 2).  The rank is where "
+                              "you think it should go.",
+                        inline=True)
         embed.add_field(name="!powerhelp",
                         value="This help page will display all the powers that"
                               " Bentley can handle",
